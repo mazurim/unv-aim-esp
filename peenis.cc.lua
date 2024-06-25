@@ -23,7 +23,7 @@ local aimbot = {
     position = "Mouse",
     --
     snapline = true,
-    snapline_color = Color3.fromRGB(255, 255, 255),
+    snapline_color = Color3.fromRGB(14, 115, 244),
     snapline_bone = "HumanoidRootPart",
     snapline_from = "Mouse",
 };
