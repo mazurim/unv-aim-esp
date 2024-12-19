@@ -30,8 +30,8 @@ local aimbot = {
 
 local Player_Modifications = {
     Omni_Sprint = {
-        Enabled = false,
-        Speed = 25,
+        Enabled = true,
+        Speed = 35,
     },
 };
 
