@@ -30,11 +30,22 @@ local aimbot = {
 
 local Player_Modifications = {
     Omni_Sprint = {
-        Enabled = true,
-        Speed = 35,
-    },
-};
+        Enabled = false,  
+        Speed = 45,
+        Key = Enum.KeyCode.P,
+    }
+}
 
+local function onKeyPress(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Player_Modifications.Omni_Sprint.Key then
+        Player_Modifications.Omni_Sprint.Enabled = not Player_Modifications.Omni_Sprint.Enabled 
+        print("Omni Sprint " .. (Player_Modifications.Omni_Sprint.Enabled and "enabled" or "disabled"))
+    end
+end
+
+game:GetService("UserInputService").InputBegan:Connect(onKeyPress)
+
+ 
 local ESP = {
     Enabled = true,
     TeamCheck = true,
@@ -126,8 +137,8 @@ local RotationAngle, Tick = -45, tick();
 
 -- Weapon Images
 local Weapon_Icons = {
-    ["Wooden Bow"] = "http://www.roblox.com/asset/?id=17677465400",
-    ["Crossbow"] = "http://www.roblox.com/asset/?id=17677473017",
+    ["Wooden Bow"] = "http://www.roblox.com/asset/?id=",
+    ["Crossbow"] = "http://www.roblox.com/asset/?id=",
     ["Salvaged SMG"] = "http://www.roblox.com/asset/?id=17677463033",
     ["Salvaged AK47"] = "http://www.roblox.com/asset/?id=17677455113",
     ["Salvaged AK74u"] = "http://www.roblox.com/asset/?id=17677442346",
@@ -671,3 +682,11 @@ for i, prop in ipairs({"SkyboxBk", "SkyboxDn", "SkyboxFt", "SkyboxLf", "SkyboxRt
     Sky[prop] = "rbxassetid://" .. skyboxData[i]
 end
 Lighting.GlobalShadows = false;
+
+function EnableSprint()
+    if not Player_Modifications.Omni_Sprint.Enabled then
+        Player_Modifications.Omni_Sprint.Enabled = true
+        print("Omni Sprint включен! Скорость: " .. Player_Modifications.Omni_Sprint.Speed)
+    end
+end
+
